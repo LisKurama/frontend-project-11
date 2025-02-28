@@ -1,0 +1,37 @@
+@use 'bootstrap/scss/bootstrap';
+
+.example-link {
+  color: #6c757d;
+}
+
+.example-link:hover {
+  color: #495057;
+  text-decoration: underline;
+}
+
+.liPost {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.buttonPost {
+  background-color: transparent;
+  color: #3498db;
+  border: 2px solid #3498db;
+  border-radius: 15px;
+  padding: 5px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: none;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.buttonPost:hover {
+  background-color: rgba(52, 152, 219, 0.1);
+  color: #2980b9;
+}

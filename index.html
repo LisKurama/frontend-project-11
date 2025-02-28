@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>RSS Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <main class="flex-grow-1">
+        <!-- first row-->
+        <section class="container-fluid bg-dark p-5">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto text-white">
+                    <h1 class="display-3 mb-0">RSS агрегатор</h1>
+                    <p class="lead">Начните читать RSS сегодня! Это легко, это красиво.</p>
+                    <!-- form-->
+                    <form action="" class="rss-form text-body">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-floating">
+                                    <input id="url-input" autofocus="" name="url" aria-label="url"
+                                        class="form-control w-100" placeholder="ссылка RSS" autocomplete="off">
+                                    <label for="url-input">Ссылка RSS</label>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <button type="submit" aria-label="add"
+                                    class="h-100 btn btn-lg btn-primary px-sm-5 ">Добавить</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- feedbak and mistake-->
+                    <p class="mt-2 mb-0 example-link">Пример: https://lorem-rss.hexlet.app/feed</p>
+                    <p class="feedback m-0 position-absolute small"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- second row-->
+        <section class="container-fluid container-xxl p-5">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 order-1 mx-auto posts"></div>
+                <div class="col-md-10 col-lg-4 mx-auto order-0 order-lg-1 feeds"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="container">
+            <p class="mb-0">&copy;LisKurama .</p>
+            <p>
+                <a href="#" class="text-white">https://github.com/LisKurama</a> 
+            </p>
+        </div>
+    </footer>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-primary">Просмотр</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
