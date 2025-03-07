@@ -1,11 +1,13 @@
+/* eslint-disable no-undef */
+
 import * as yup from 'yup';
 import onChange from 'on-change';
 import i18next from 'i18next';
 import axios from 'axios';
-import render from './view/View.js';
-import fetchAndParseFeed from './rssServices/rssService.js';
+import render from './view.js';
+import fetchAndParseFeed from './services/rssService.js';
 import resources from './locales/index.js';
-import updatePosts from './rssServices/updatePosts.js';
+import updatePosts from './services/updater.js';
 
 const getMessageError = (error) => {
   if (error.isParsingError) {

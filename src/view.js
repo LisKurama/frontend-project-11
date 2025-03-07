@@ -1,8 +1,10 @@
-import renderFeeds from './renderFeed.js';
-import renderPosts from './renderPost.js';
-import renderErrors from './renderErrors.js';
-import renderFormState from './renderFormeState.js';
-import renderModalId from './renderModalId.js';
+import {
+  renderFormState,
+  renderFeeds,
+  renderPosts,
+  renderModalId,
+  renderErrors,
+} from './render.js';
 
 export default function render(state, i18nextInstance, elements) {
   const renderPath = (path) => {
