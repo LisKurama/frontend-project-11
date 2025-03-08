@@ -1,13 +1,19 @@
 /* eslint-disable no-undef */
 
 import * as yup from 'yup';
-import onChange from 'on-change';
 import i18next from 'i18next';
 import axios from 'axios';
-import render from './view.js';
+import watchState from './view.js';
 import fetchAndParseFeed from './services/rssService.js';
 import resources from './locales/index.js';
 import updatePosts from './services/updater.js';
+
+const addProxy = (url) => {
+  const proxyUrl = new URL('/get', 'https://allorigins.hexlet.app');
+  proxyUrl.searchParams.append('disableCache', 'true');
+  proxyUrl.searchParams.append('url', url);
+  return proxyUrl.toString();
+};
 
 const getMessageError = (error) => {
   if (error.isParsingError) {
@@ -67,11 +73,9 @@ export default function app() {
       resources,
     })
     .then(() => {
-      const watchedState = onChange(state, (path) => {
-        render(watchedState, i18nextInstance, elements)(path);
-      });
+      const watchedState = watchState(state, i18nextInstance, elements);
 
-      updatePosts(watchedState);
+      updatePosts(watchedState, addProxy);
 
       const handleFormSubmit = (inputValue) => {
         const formSchema = createFormSchema();
@@ -80,7 +84,7 @@ export default function app() {
           .then(() => {
             watchedState.submitForm.error = '';
             watchedState.formState = 'sending';
-            return fetchAndParseFeed(watchedState, inputValue);
+            return fetchAndParseFeed(watchedState, inputValue, addProxy);
           })
           .then(() => {
             watchedState.formState = 'added';
